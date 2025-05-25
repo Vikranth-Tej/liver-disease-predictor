@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/liver-disease-predictor/static/css/main.381a29b8.css",
+    "main.js": "/liver-disease-predictor/static/js/main.9d633190.js",
+    "static/js/453.8ab44547.chunk.js": "/liver-disease-predictor/static/js/453.8ab44547.chunk.js",
+    "index.html": "/liver-disease-predictor/index.html",
+    "main.381a29b8.css.map": "/liver-disease-predictor/static/css/main.381a29b8.css.map",
+    "main.9d633190.js.map": "/liver-disease-predictor/static/js/main.9d633190.js.map",
+    "453.8ab44547.chunk.js.map": "/liver-disease-predictor/static/js/453.8ab44547.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.381a29b8.css",
+    "static/js/main.9d633190.js"
+  ]
+}

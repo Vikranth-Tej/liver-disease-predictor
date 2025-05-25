@@ -1,0 +1,41 @@
+# === Python / Backend ===
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+.venv/
+venv/
+ENV/
+backend/venv/
+backend/__pycache__/
+*.sqlite3
+*.h5
+*.keras
+*.pkl
+
+# === Jupyter Notebook Checkpoints ===
+.ipynb_checkpoints
+
+# === Environment Variables ===
+.env
+*.env
+
+# === VSCode Settings ===
+.vscode/
+
+# === Node / Frontend ===
+node_modules/
+frontend/node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.DS_Store
+
+# === OS files ===
+Thumbs.db
+Desktop.ini
