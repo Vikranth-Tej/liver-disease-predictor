@@ -6,7 +6,6 @@ A full-stack web application that predicts the likelihood of liver disease using
 - **Frontend**: React.js
 - **Backend**: Flask (Python)
 - **Model**: Keras `.keras` model + `scaler.pkl`
-- **Deployment**: Render
 
 ## 🩺 Input Features
 - Age
