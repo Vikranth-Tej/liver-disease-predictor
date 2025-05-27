@@ -39,7 +39,7 @@ function App() {
     };
 
     try {
-      const res = await axios.post('http://localhost:5000/predict', payload);
+      const res = await axios.post('https://liver-disease-predictor-8wm6.onrender.com/predict', payload);
       setPrediction({
         result: res.data.result,
         probability: res.data.probability
