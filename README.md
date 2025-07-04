@@ -2,12 +2,12 @@
 
 A full-stack web application that predicts the likelihood of liver disease using a trained deep learning model (Keras) and a standard scaler.
 
-## 🚀 Tech Stack
+##  Tech Stack
 - **Frontend**: React.js
 - **Backend**: Flask (Python)
 - **Model**: Keras `.keras` model + `scaler.pkl`
 
-## 🩺 Input Features
+##  Input Features
 - Age
 - Gender
 - Total Bilirubin
@@ -18,7 +18,7 @@ A full-stack web application that predicts the likelihood of liver disease using
 - Albumin
 - A/G Ratio
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Backend
