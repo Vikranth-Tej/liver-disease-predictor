@@ -1,5 +1,5 @@
 
-```markdown
+```
 # 🧬 Liver Disease Predictor
 
 A full‑stack web application for liver disease risk assessment using Machine Learning.  
@@ -30,8 +30,6 @@ Frontend (React) for user interaction and visualization, Backend (Flask) with a 
 - **Medical Theme**: Responsive UI with professional styling  
 - **Disclaimer**: Informational only, not medical advice  
 
-
-```
 
 ---
 
