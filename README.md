@@ -10,7 +10,10 @@ Built with a **React.js** frontend for user interaction and visualization, and a
 - **Backend:** Flask (Python API)  
 - **Model:** Keras `.keras` model + `scaler.pkl`  
 - **Deployment:** Render 
-
+Access at: 
+```
+  https://liver-disease-predictor-frma.onrender.com/
+```
 ---
 
 ##  Input Features
