@@ -25,17 +25,17 @@ Built with a **React.js** frontend for user interaction and visualization, and a
 ---
 
 ##  Features
-- ** Risk Prediction:** ML-powered prediction via Flask API (`/api/predict`)  
-- ** Real-time Validation:** Clinical parameter checks with constraints  
-- ** Result Visualization:** Displays risk levels and confidence scores  
-- ** Clinical Reference Table:** Biomarkers for common liver conditions:  
+- **Risk Prediction:** ML-powered prediction via Flask API (`/api/predict`)  
+- **Real-time Validation:** Clinical parameter checks with constraints  
+- **Result Visualization:** Displays risk levels and confidence scores  
+- **Clinical Reference Table:** Biomarkers for common liver conditions:  
   - Hepatitis  
   - Cirrhosis  
   - Cholestasis  
   - NAFLD  
   - Alcoholic Liver Disease  
-- ** Medical-Themed UI:** Professional styling, fully responsive  
-- ** Medical Disclaimer:** Informational use only; **not medical advice**  
+- **Medical-Themed UI:** Professional styling, fully responsive  
+- **Medical Disclaimer:** Informational use only; **not medical advice**  
 
 ---
 
