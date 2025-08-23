@@ -80,21 +80,6 @@ Frontend will run at:
 | `/api/predict`  | POST   | Predict liver disease risk   |
 | `/api/features` | GET    | Input features information   |
 
----
-
-##  Deployment Guide
-
-### Frontend (Static Site)
-- **Build Command:**  
-```
-npm run build
-```
-- **Publish Directory:** `dist`  
-- Deployed via **Render**
-
-### Backend (Flask API)
-- Deployed on **Render**
-
 
 ---
 
