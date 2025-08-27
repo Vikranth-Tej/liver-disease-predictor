@@ -6,10 +6,17 @@ The project involves **data preprocessing, visualization, model training, and de
 ---
 
 ##  Tech Stack
-- **Frontend:** React.js + Vite (medical-themed UI, responsive design)  
-- **Backend:** Flask (Python API)  
-- **Model:** Deep learning-Dense Neural Network; Keras `.keras` model + `scaler.pkl`  
-- **Deployment:** Render 
+- **Model:** Deep Learning — Dense Neural Network (DNN) using **Keras** (`.keras` model) + **StandardScaler** (`scaler.pkl`)
+- **Data Visualization:** Matplotlib, Seaborn
+- **Machine Learning Libraries:**  
+  - Scikit-learn (Logistic Regression, Random Forest, Decision Tree, KNN, SVM, Naive Bayes)
+  - Gradient Boosting, XGBoost, LightGBM
+  - Voting Classifiers for ensemble learning
+- **Data Handling:** Pandas, NumPy, Scikit-learn `SimpleImputer`
+- **Class Imbalance Handling:** Random Oversampling (`imblearn`)
+- **Backend:** Flask (Python REST API)
+- **Frontend:** React.js + Vite (responsive design)
+- **Deployment:** Render
   
 ```
   https://liver-disease-predictor-frma.onrender.com/
@@ -73,8 +80,8 @@ A **Dense Neural Network (DNN)** built with **Keras**:
 
 ### 1. Clone the Repository
 ```
-    git clone https://github.com/Vikranth-Tej/liver-disease-predictor.git
-    cd liver-disease-predictor
+git clone https://github.com/Vikranth-Tej/liver-disease-predictor.git
+cd liver-disease-predictor
 ```
 
 ### 2. Backend Setup
