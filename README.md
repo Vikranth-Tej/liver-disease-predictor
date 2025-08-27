@@ -1,14 +1,14 @@
 # 🩺 Liver Disease Predictor
 
-A **full‑stack web application** for **liver disease risk assessment** using **Machine Learning**.  
-Built with a **React.js** frontend for user interaction and visualization, and a **Flask API backend** powered by a trained **Keras model** for predictions.
+A **Machine Learning-based predictive model** built using a **Dense Neural Network (DNN)** with **Keras** to assess the risk of **liver disease** based on patient clinical attributes.  
+The project involves **data preprocessing, visualization, model training, and deployment** through a **Flask REST API**, with an optional **React.js frontend** for user interaction.
 
 ---
 
 ##  Tech Stack
 - **Frontend:** React.js + Vite (medical-themed UI, responsive design)  
 - **Backend:** Flask (Python API)  
-- **Model:** Keras `.keras` model + `scaler.pkl`  
+- **Model:** Deep learning-Dense Neural Network; Keras `.keras` model + `scaler.pkl`  
 - **Deployment:** Render 
   
 ```
@@ -16,7 +16,7 @@ Built with a **React.js** frontend for user interaction and visualization, and a
 ```
 ---
 
-##  Input Features
+## 🔬 Input Features
 - **Demographics:** Age, Gender  
 - **Bilirubin Tests:** Total & Direct Bilirubin  
 - **Liver Enzymes:** Alkaline Phosphatase, SGPT (ALT), SGOT (AST)  
@@ -25,21 +25,45 @@ Built with a **React.js** frontend for user interaction and visualization, and a
 ---
 
 ##  Features
-- **Risk Prediction:** ML-powered prediction via Flask API (`/api/predict`)  
-- **Real-time Validation:** Clinical parameter checks with constraints  
-- **Result Visualization:** Displays risk levels and confidence scores  
-- **Clinical Reference Table:** Biomarkers for common liver conditions:  
-  - Hepatitis  
-  - Cirrhosis  
-  - Cholestasis  
-  - NAFLD  
-  - Alcoholic Liver Disease  
-- **Medical-Themed UI:** Professional styling, fully responsive  
+- **Risk Prediction:** ML-powered liver disease risk prediction via **Flask API** (`/api/predict`)
+- **Real-time Validation:** Validates clinical parameters with medical constraints before prediction
+- **Result Visualization:** Displays **risk levels** and **confidence scores** for better interpretation
+- **Clinical Reference Table:** Provides biomarker ranges for common liver conditions:
+  - Hepatitis
+  - Cirrhosis
+  - Cholestasis
+  - NAFLD (Non-Alcoholic Fatty Liver Disease)
+  - Alcoholic Liver Disease
 - **Medical Disclaimer:** Informational use only; **not medical advice**  
 
 ---
+## Model Training
 
-## ⚙️ Installation & Setup
+-**Architecture:** Dense Neural Network (DNN)
+-**Layers:** Input → Hidden (ReLU + Dropout) → Output (Sigmoid)
+-**Loss Function:** Binary Crossentropy
+-**Optimizer:** Adam
+-**Metrics:** Accuracy, Precision, Recall, F1-score
+
+---
+## Model Architecture
+A **Dense Neural Network (DNN)** built with **Keras**:
+
+| Layer | Units | Activation | Dropout |
+|-------|-------|------------|---------|
+| Dense | 64    | ReLU       | 0.3     |
+| Dense | 32    | ReLU       | 0.2     |
+| Output| 1     | Sigmoid    | —       |
+
+- **Loss Function:** Binary Crossentropy  
+- **Optimizer:** Adam  
+- **Callbacks:** EarlyStopping (`patience=10`, `restore_best_weights=True`)  
+- **Batch Size:** 32  
+- **Epochs:** 100  
+
+---
+
+##  Installation & Setup
 
 ### 1. Clone the Repository
 ```
@@ -49,11 +73,11 @@ Built with a **React.js** frontend for user interaction and visualization, and a
 
 ### 2. Backend Setup
 ```
-    cd backend
-    python -m venv venv
-    source venv/bin/activate # Windows: venv\Scripts\activate
-    pip install -r requirements.txt
-    python app.py
+cd backend
+python -m venv venv
+source venv/bin/activate # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
 
 ```
 Backend will run at:  
@@ -61,9 +85,8 @@ Backend will run at:
 
 ### 3. Frontend Setup
 ```
-    cd ../frontend
-    npm install
-    npm run dev
+npm install
+npm run dev
 
 ```
 
