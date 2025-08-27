@@ -16,7 +16,7 @@ The project involves **data preprocessing, visualization, model training, and de
 ```
 ---
 
-## 🔬 Input Features
+## 🔬 Input
 - **Demographics:** Age, Gender  
 - **Bilirubin Tests:** Total & Direct Bilirubin  
 - **Liver Enzymes:** Alkaline Phosphatase, SGPT (ALT), SGOT (AST)  
@@ -24,26 +24,16 @@ The project involves **data preprocessing, visualization, model training, and de
 
 ---
 
-##  Features
-- **Risk Prediction:** ML-powered liver disease risk prediction via **Flask API** (`/api/predict`)
-- **Real-time Validation:** Validates clinical parameters with medical constraints before prediction
-- **Result Visualization:** Displays **risk levels** and **confidence scores** for better interpretation
-- **Clinical Reference Table:** Provides biomarker ranges for common liver conditions:
-  - Hepatitis
-  - Cirrhosis
-  - Cholestasis
-  - NAFLD (Non-Alcoholic Fatty Liver Disease)
-  - Alcoholic Liver Disease
-- **Medical Disclaimer:** Informational use only; **not medical advice**  
+ 
 
 ---
 ## Model Training
 
--**Architecture:** Dense Neural Network (DNN)
--**Layers:** Input → Hidden (ReLU + Dropout) → Output (Sigmoid)
--**Loss Function:** Binary Crossentropy
--**Optimizer:** Adam
--**Metrics:** Accuracy, Precision, Recall, F1-score
+- **Architecture:** Dense Neural Network (DNN)
+- **Layers:** Input → Hidden (ReLU + Dropout) → Output (Sigmoid)
+- **Loss Function:** Binary Crossentropy
+- **Optimizer:** Adam
+- **Metrics:** Accuracy, Precision, Recall, F1-score
 
 ---
 ## Model Architecture
@@ -62,7 +52,23 @@ A **Dense Neural Network (DNN)** built with **Keras**:
 - **Epochs:** 100  
 
 ---
+##  Features
+- **Risk Prediction:** ML-powered liver disease risk prediction via **Flask API** (`/api/predict`)
+- **Real-time Validation:** Validates clinical parameters with medical constraints before prediction
+- **Result Visualization:** Displays **risk levels** and **confidence scores** for better interpretation
+- **Data Visualization:** Uses **Matplotlib** and **Seaborn** to visualize:
+  - Attribute distributions
+  - Correlations between biomarkers
+  - Disease vs non-disease patterns
+- **Clinical Reference Table:** Provides biomarker ranges for common liver conditions:
+  - Hepatitis
+  - Cirrhosis
+  - Cholestasis
+  - NAFLD (Non-Alcoholic Fatty Liver Disease)
+  - Alcoholic Liver Disease
+- **Medical Disclaimer:** Informational use only; **not medical advice**
 
+---
 ##  Installation & Setup
 
 ### 1. Clone the Repository
