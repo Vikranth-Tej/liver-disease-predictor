@@ -30,10 +30,6 @@ The project involves **data preprocessing, visualization, model training, and de
 - **Protein Markers:** Total Proteins, Albumin, A/G Ratio  
 
 ---
-
- 
-
----
 ## Model Training
 
 - **Architecture:** Dense Neural Network (DNN)
@@ -130,15 +126,15 @@ liver-disease-predictor/
 │
 │── frontend/ # React + Vite Frontend
 │ ├── src/
-│ │ ├── components/
-│ │ │ ├── PredictionForm.jsx
-│ │ │ └── ReferenceTable.jsx
-│ │ ├── App.jsx
-│ │ ├── main.jsx
-│ │ └── index.css
-│ ├── vite.config.js
-│ ├── package.json
-│ └── dist/ # Generated after build
+│ ├── components/
+│ │ ├── PredictionForm.jsx
+│ │ └── ReferenceTable.jsx
+│ ├── App.jsx
+│ ├── main.jsx
+│ └── index.css
+│── vite.config.js
+│── package.json
+│── dist/ # Generated after build
 │
 └── README.md
 
