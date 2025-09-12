@@ -10,7 +10,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-center items-center">
           {/* Image */}
           <img
-            src="https://imgs.search.brave.com/oySsdmuCEBj_7zQB2bnee8HiUo50WiJAphwFPOss--k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNjUv/ODc2LzgwOS9zbWFs/bC9odW1hbi1saXZl/ci1hbmQtcGFuY3Jl/YXMtYW5hdG9teS1p/bGx1c3RyYXRpb24t/ZnJlZS1waG90by5q/cGc"
+            src="https://stock.adobe.com/search?k=%22human+liver%22"
             alt="Liver health illustration"
             className="h-24 w-auto mr-6"
           />
