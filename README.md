@@ -10,7 +10,6 @@ The project involves **data preprocessing, visualization, model training, and de
 - **Data Visualization:** Matplotlib, Seaborn
 - **Machine Learning Libraries:**  
   - Scikit-learn (Logistic Regression, Random Forest, Decision Tree, KNN, SVM, Naive Bayes)
-  - Gradient Boosting, XGBoost, LightGBM
   - Voting Classifiers for ensemble learning
 - **Data Handling:** Pandas, NumPy, Scikit-learn `SimpleImputer`
 - **Class Imbalance Handling:** Random Oversampling (`imblearn`)
