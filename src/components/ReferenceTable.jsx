@@ -8,7 +8,6 @@ const ReferenceTable = () => {
       alkphos: "44–147 IU/L",
       astAltPattern: "AST 10–40 IU/L, ALT 7–56 IU/L",
       albumin: "3.5–5.0 g/dL",
-      ggt: "8–61 IU/L",
       notes: "Baseline liver values for healthy adults.",
       prevention: ["Baseline health — no intervention needed"],
       screening: "Routine annual health check-up",
@@ -20,7 +19,6 @@ const ReferenceTable = () => {
       alkphos: "~150–350 IU/L",
       astAltPattern: "AST 400–800 IU/L, ALT 600–1200 IU/L (AST/ALT < 1)",
       albumin: "3.5–5.0 g/dL",
-      ggt: "~50–200 IU/L",
       notes: "Hepatocellular injury from viral infection with prodrome (fever, malaise) followed by jaundice; ALT peaks early, before bilirubin rise.",
       prevention: [
         "Wash hands regularly and practice good personal hygiene",
@@ -38,8 +36,7 @@ const ReferenceTable = () => {
       alkphos: "~120–250 IU/L",
       astAltPattern: "AST 150–400 IU/L, ALT 50–200 IU/L (AST/ALT ~2)",
       albumin: "2.5–3.5 g/dL",
-      ggt: "~100–500 IU/L",
-      notes: "Chronic ethanol toxicity → fatty liver, alcoholic hepatitis, cirrhosis. AST predominance; GGT often elevated.",
+      notes: "Chronic ethanol toxicity → fatty liver, alcoholic hepatitis, cirrhosis. AST predominance.",
       prevention: [
         "Completely avoid alcohol",
         "Seek counseling/support for alcohol dependence",
@@ -56,7 +53,6 @@ const ReferenceTable = () => {
       alkphos: "~300–900 IU/L",
       astAltPattern: "AST/ALT usually <200 IU/L",
       albumin: "3.5–5.0 g/dL",
-      ggt: "~150–600 IU/L",
       notes: "Bile duct obstruction causes conjugated hyperbilirubinemia, jaundice, dark urine, pale stools.",
       prevention: [
         "Maintain healthy weight and diet to reduce gallstone risk",
@@ -74,7 +70,6 @@ const ReferenceTable = () => {
       alkphos: "~120–300 IU/L",
       astAltPattern: "AST 80–300 IU/L, ALT 40–200 IU/L (AST/ALT > 1)",
       albumin: "2.0–3.5 g/dL",
-      ggt: "~50–200 IU/L",
       notes: "End-stage fibrosis with portal hypertension. Signs include ascites, varices, encephalopathy. Synthetic dysfunction causes coagulopathy.",
       prevention: [
         "Abstain from alcohol",
@@ -93,7 +88,6 @@ const ReferenceTable = () => {
       alkphos: "~100–200 IU/L",
       astAltPattern: "AST 30–70 IU/L, ALT 40–100 IU/L (ratio ~0.7–1.5)",
       albumin: "3.5–5.0 g/dL",
-      ggt: "~30–100 IU/L",
       notes: "Hepatic steatosis associated with obesity and insulin resistance. Often asymptomatic; ALT predominance. Can progress to NASH/cirrhosis.",
       prevention: [
         "Lose 7–10% body weight gradually",
@@ -115,7 +109,7 @@ const ReferenceTable = () => {
       <div className="mb-4 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-md">
         <p className="text-blue-800 text-sm font-medium">Clinical Reference Information</p>
         <p className="text-blue-700 text-sm mt-1">
-          Typical liver lab patterns with approximate values, prevention tips, and intuitive interpretation. Always consult healthcare professionals for clinical decisions.
+          Typical liver lab patterns with approximate values, screening, and intuitive interpretation. Prevention tips are listed at the end.
         </p>
       </div>
 
@@ -128,11 +122,10 @@ const ReferenceTable = () => {
               <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">ALP (IU/L)</th>
               <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">AST / ALT</th>
               <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">Albumin (g/dL)</th>
-              <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">GGT (IU/L)</th>
               <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">Clinical notes</th>
-              <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">Prevention</th>
               <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">Screening / Monitoring</th>
               <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">Interpretation</th>
+              <th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">Prevention</th>
             </tr>
           </thead>
           <tbody>
@@ -143,8 +136,9 @@ const ReferenceTable = () => {
                 <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.alkphos}</td>
                 <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.astAltPattern}</td>
                 <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.albumin}</td>
-                <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.ggt || '-'}</td>
                 <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.notes}</td>
+                <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.screening || '-'}</td>
+                <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.interpretation}</td>
                 <td className="border border-gray-200 px-4 py-3 text-sm bg-green-50">
                   <ul className="list-disc pl-5 text-green-800 text-xs space-y-1">
                     {cond.prevention?.map((tip, i) => (
@@ -152,8 +146,6 @@ const ReferenceTable = () => {
                     ))}
                   </ul>
                 </td>
-                <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.screening || '-'}</td>
-                <td className="border border-gray-200 px-4 py-3 text-sm text-gray-700">{cond.interpretation}</td>
               </tr>
             ))}
           </tbody>
