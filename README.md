@@ -71,37 +71,6 @@ A **Dense Neural Network (DNN)** built with **Keras**:
 - **Medical Disclaimer:** Informational use only; **not medical advice**
 
 ---
-##  Installation & Setup
-
-### 1. Clone the Repository
-```
-git clone https://github.com/Vikranth-Tej/liver-disease-predictor.git
-cd liver-disease-predictor
-```
-
-### 2. Backend Setup
-```
-cd backend
-python -m venv venv
-source venv/bin/activate # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
-
-```
-Backend will run at:  
- `http://localhost:5000`
-
-### 3. Frontend Setup
-```
-npm install
-npm run dev
-
-```
-
-Frontend will run at:  
- `http://localhost:5173`
-
----
 
 ##  API Endpoints
 
@@ -112,32 +81,6 @@ Frontend will run at:
 | `/api/features` | GET    | Input features information   |
 
 
----
-
-##  Project Structure
-```
-liver-disease-predictor/
-│── backend/ # Flask API + Model
-│ ├── app.py
-│ ├── model.keras
-│ ├── scaler.pkl
-│ └── requirements.txt
-│
-│── frontend/ # React + Vite Frontend
-│ ├── src/
-│ ├── components/
-│ │ ├── PredictionForm.jsx
-│ │ └── ReferenceTable.jsx
-│ ├── App.jsx
-│ ├── main.jsx
-│ └── index.css
-│── vite.config.js
-│── package.json
-│── dist/ # Generated after build
-│
-└── README.md
-
-```
 ---
 
 ## ⚠️ Medical Disclaimer
