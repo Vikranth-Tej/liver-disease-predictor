@@ -43,6 +43,7 @@ A **Dense Neural Network (DNN)** built with **Keras**:
 
 | Layer | Units | Activation | Dropout |
 |-------|-------|------------|---------|
+| Dense | 128   | ReLU       | 0.3     |
 | Dense | 64    | ReLU       | 0.3     |
 | Dense | 32    | ReLU       | 0.2     |
 | Output| 1     | Sigmoid    | —       |
