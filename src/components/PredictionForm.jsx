@@ -242,7 +242,7 @@ const PredictionForm = () => {
         AG_Ratio: parseFloat(formData.AG_Ratio)
       };
 
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://backend-1-jy1p.onrender.com';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://liver-disease-predictor-8wm6.onrender.com';
       const response = await fetch(`${apiUrl}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
