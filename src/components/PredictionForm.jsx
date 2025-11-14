@@ -112,61 +112,93 @@ const PredictionForm = () => {
   };
 
   const analyzeClinicalPatterns = (data) => {
-    const age = parseFloat(data.Age);
-    const totalBilirubin = parseFloat(data.Total_Bilirubin);
-    const directBilirubin = parseFloat(data.Direct_Bilirubin);
-    const alkphos = parseFloat(data.Alkphos);
-    const alt = parseFloat(data.Sgpt);
-    const ast = parseFloat(data.Sgot);
-    const albumin = parseFloat(data.Albumin);
-    const totalProteins = parseFloat(data.Total_Proteins);
+  const age = parseFloat(data.Age);
+  const tb = parseFloat(data.Total_Bilirubin);
+  const db = parseFloat(data.Direct_Bilirubin);
+  const alp = parseFloat(data.Alkphos);
+  const alt = parseFloat(data.Sgpt);
+  const ast = parseFloat(data.Sgot);
+  const albumin = parseFloat(data.Albumin);
 
-    const astAltRatio = alt > 0 ? ast / alt : 0;
-    const scores = {};
+  const astAltRatio = alt > 0 ? ast / alt : 0;
 
-    scores.acuteViral = 0;
-    if (totalBilirubin > 3) scores.acuteViral += 3;
-    if (directBilirubin > 1.5) scores.acuteViral += 2;
-    if (alt > ast && (alt > 500 || ast > 500)) scores.acuteViral += 4;
-    if (alkphos < 200) scores.acuteViral += 1;
-    if (albumin >= 3.2 && albumin <= 3.5) scores.acuteViral += 1;
+  // Score object
+  const scores = {
+    acuteViral: 0,
+    alcoholic: 0,
+    cholestasis: 0,
+    cirrhosis: 0,
+    nafld: 0,
+    normal: 0
+  };
 
-    scores.alcoholic = 0;
-    if (totalBilirubin >= 1.2 && totalBilirubin <= 3) scores.alcoholic += 2;
-    if (astAltRatio > 2) scores.alcoholic += 4;
-    if (ast < 300) scores.alcoholic += 1;
-    if (alkphos < 200) scores.alcoholic += 1;
-    if (albumin < 3.5) scores.alcoholic += 2;
+  // -----------------------------
+  // 🔵 NORMAL REFERENCE RANGE
+  // -----------------------------
+  if (tb >= 0.3 && tb <= 1.2) scores.normal += 2;
+  if (alp >= 44 && alp <= 147) scores.normal += 2;
+  if (ast >= 10 && ast <= 40) scores.normal += 1;
+  if (alt >= 7 && alt <= 56) scores.normal += 1;
+  if (albumin >= 3.5 && albumin <= 5.0) scores.normal += 2;
 
-    scores.cholestasis = 0;
-    if (directBilirubin > 1.5) scores.cholestasis += 3;
-    if (totalBilirubin > 3) scores.cholestasis += 2;
-    if (alkphos > 300) scores.cholestasis += 4;
-    if (alt < 150 && ast < 150) scores.cholestasis += 2;
+  // -----------------------------
+  // 🟡 ACUTE VIRAL HEPATITIS
+  // -----------------------------
+  if (tb >= 5 && tb <= 15) scores.acuteViral += 3;
+  if (alp >= 150 && alp <= 350) scores.acuteViral += 2;
+  if (ast >= 400 && ast <= 800) scores.acuteViral += 3;
+  if (alt >= 600 && alt <= 1200 && astAltRatio < 1) scores.acuteViral += 3;
+  if (albumin >= 3.5 && albumin <= 5.0) scores.acuteViral += 1;
 
-    scores.cirrhosis = 0;
-    if (totalBilirubin > 1.2) scores.cirrhosis += 2;
-    if (albumin < 3.0) scores.cirrhosis += 3;
-    if (totalProteins < 6.0) scores.cirrhosis += 2;
-    if (age > 50) scores.cirrhosis += 1;
+  // -----------------------------
+  // 🟠 ALCOHOLIC LIVER DISEASE
+  // -----------------------------
+  if (tb >= 3 && tb <= 10) scores.alcoholic += 2;
+  if (alp >= 120 && alp <= 250) scores.alcoholic += 2;
+  if (ast >= 150 && ast <= 400) scores.alcoholic += 3;
+  if (alt >= 50 && alt <= 200 && astAltRatio >= 1.8 && astAltRatio <= 2.2) scores.alcoholic += 3;
+  if (albumin >= 2.5 && albumin <= 3.5) scores.alcoholic += 2;
 
-    scores.nafld = 0;
-    if (totalBilirubin >= 1.0 && totalBilirubin <= 2.0) scores.nafld += 2;
-    if (alt > ast && astAltRatio < 1) scores.nafld += 3;
-    if (alt < 200 && ast < 200) scores.nafld += 2;
-    if (alkphos < 200) scores.nafld += 1;
-    if (albumin >= 3.2 && albumin <= 3.5) scores.nafld += 1;
+  // -----------------------------
+  // 🔴 CHOLESTASIS (BILE OBSTRUCTION)
+  // -----------------------------
+  if (tb >= 5 && tb <= 20) scores.cholestasis += 3;
+  if (db > 1.5) scores.cholestasis += 3;
+  if (alp >= 300 && alp <= 900) scores.cholestasis += 4;
+  if (ast < 200 && alt < 200) scores.cholestasis += 2;
+  if (albumin >= 3.5 && albumin <= 5.0) scores.cholestasis += 1;
 
-    const maxScore = Math.max(...Object.values(scores));
-    const mostLikely = Object.keys(scores).find(key => scores[key] === maxScore);
+  // -----------------------------
+  // 🟤 CIRRHOSIS / CHRONIC LIVER DISEASE
+  // -----------------------------
+  if (tb >= 2 && tb <= 15) scores.cirrhosis += 2;
+  if (alp >= 120 && alp <= 300) scores.cirrhosis += 2;
+  if (ast >= 80 && ast <= 300) scores.cirrhosis += 2;
+  if (alt >= 40 && alt <= 200 && astAltRatio > 1) scores.cirrhosis += 2;
+  if (albumin >= 2.0 && albumin <= 3.5) scores.cirrhosis += 3;
+  if (age > 50) scores.cirrhosis += 1;
 
-    const conditionMap = {
-      acuteViral: { name: 'Acute Viral Hepatitis', recommendation: 'Rapid hepatocellular injury pattern detected.' },
-      alcoholic: { name: 'Alcoholic Liver Disease', recommendation: 'AST/ALT ratio suggests possible alcohol-related liver damage.' },
-      cholestasis: { name: 'Cholestasis (Bile Obstruction)', recommendation: 'Elevated alkaline phosphatase and bilirubin suggest bile flow obstruction.' },
-      cirrhosis: { name: 'Cirrhosis/Chronic Liver Disease', recommendation: 'Low albumin and protein levels suggest chronic liver dysfunction.' },
-      nafld: { name: 'Fatty Liver Disease (NAFLD)', recommendation: 'Enzyme pattern consistent with fatty liver disease.' }
-    };
+  // -----------------------------
+  // 🟢 NAFLD
+  // -----------------------------
+  if (tb >= 0.8 && tb <= 2.0) scores.nafld += 2;
+  if (alp >= 100 && alp <= 200) scores.nafld += 2;
+  if (ast >= 30 && ast <= 70) scores.nafld += 2;
+  if (alt >= 40 && alt <= 100 && astAltRatio >= 0.7 && astAltRatio <= 1.5) scores.nafld += 3;
+  if (albumin >= 3.5 && albumin <= 5.0) scores.nafld += 1;
+
+  // Determine max score
+  const maxScore = Math.max(...Object.values(scores));
+  const mostLikely = Object.keys(scores).find(k => scores[k] === maxScore);
+
+  const conditionMap = {
+    normal: { name: 'Normal Liver Function', recommendation: 'Values fall inside healthy clinical ranges.' },
+    acuteViral: { name: 'Acute Viral Hepatitis', recommendation: 'Pattern matches viral hepatocellular injury.' },
+    alcoholic: { name: 'Alcoholic Liver Disease', recommendation: 'AST/ALT pattern consistent with ethanol toxicity.' },
+    cholestasis: { name: 'Cholestasis (Bile Obstruction)', recommendation: 'Pattern matches biliary obstruction.' },
+    cirrhosis: { name: 'Cirrhosis / Chronic Liver Disease', recommendation: 'Findings match chronic hepatic fibrosis.' },
+    nafld: { name: 'Non-Alcoholic Fatty Liver Disease (NAFLD)', recommendation: 'Pattern consistent with hepatic steatosis.' }
+  };
 
     const details = {
       acuteViral: [
@@ -215,7 +247,7 @@ const PredictionForm = () => {
       mostLikelyCondition: conditionMap[mostLikely]?.name || 'Liver Disease',
       recommendation: conditionMap[mostLikely]?.recommendation || 'Abnormal liver function detected.',
       scores,
-      confidence: maxScore > 5 ? 'High' : maxScore > 3 ? 'Moderate' : 'Low',
+      confidence: maxScore > 6 ? 'High' : maxScore > 3 ? 'Moderate' : 'Low',
       informativeDetails: mostLikely ? details[mostLikely] : []
     };
   };
@@ -242,7 +274,7 @@ const PredictionForm = () => {
         AG_Ratio: parseFloat(formData.AG_Ratio)
       };
 
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://liver-disease-predictor-8wm6.onrender.com';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://liver-backend-keras.onrender.com';
       const response = await fetch(`${apiUrl}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
