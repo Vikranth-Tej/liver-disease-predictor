@@ -340,7 +340,7 @@ const PredictionForm = () => {
 
       const apiUrl =
         import.meta.env.VITE_API_URL ||
-        "https://liver-disease-predictor-8wm6.onrender.com";
+        "https://liver-backend-keras.onrender.com";
 
       const response = await fetch(`${apiUrl}/predict`, {
         method: "POST",
