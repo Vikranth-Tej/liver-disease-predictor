@@ -9,10 +9,10 @@ The project involves **data preprocessing, visualization, model training, and de
 - **Model:** Deep Learning — Dense Neural Network (DNN) using **Keras** (`.keras` model) + **StandardScaler** (`scaler.pkl`)
 - **Data Visualization:** Matplotlib, Seaborn
 - **Machine Learning Libraries:**  
-  - Scikit-learn (Logistic Regression, Random Forest, Decision Tree, KNN, SVM, Naive Bayes)
+  - Scikit-learn 
   - Voting Classifiers for ensemble learning
 - **Data Handling:** Pandas, NumPy, Scikit-learn `SimpleImputer`
-- **Class Imbalance Handling:** Random Oversampling (`imblearn`)
+- **Class Imbalance Handling:** Synthetic Minority Oversampling (`imblearn`)
 - **Backend:** Flask (Python REST API)
 - **Frontend:** React.js + Vite (responsive design)
 - **Deployment:** Render
