@@ -52,6 +52,7 @@ function App() {
               professional medical advice, diagnosis, or treatment. Always seek the advice of qualified healthcare 
               providers with any questions regarding medical conditions. Never disregard professional medical advice 
               or delay seeking it because of information obtained from this tool.
+              BY SAI VIKRANTH TEJ
             </p>
           </div>
         </div>
